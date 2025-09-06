@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodgo/models/user_model.dart';
+//import 'package:foodgo/models/user_model.dart';
 import 'package:foodgo/services/auth_services.dart';
 import 'package:foodgo/view/home_screen.dart';
 import 'package:get/get.dart';
@@ -15,6 +17,10 @@ class AuthController extends GetxController {
 
   // Loading State
   var isLoading = false.obs;
+
+  var isProfileLading = false.obs;
+
+  Rxn<UserModel> currentUser = Rxn<UserModel>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -66,7 +72,7 @@ class AuthController extends GetxController {
       Get.snackbar(
         "Success",
         "User Login Successfully",
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.grey,
         colorText: Colors.white,
       );
 
@@ -77,13 +83,27 @@ class AuthController extends GetxController {
     } catch (exception) {}
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    if (firebaseAuth.currentUser != null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Get.offAll(HomeScreen(), transition: Transition.noTransition);
-      });
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   if (firebaseAuth.currentUser != null) {
+  //     WidgetsBinding.instance.addPostFrameCallback((_) {
+  //       Get.offAll(HomeScreen(), transition: Transition.noTransition);
+  //     });
+  //   }
+  // }
+
+  Future<void> fatchUserProfile() async {
+    try {
+      isProfileLading.value = true;
+
+      UserModel? userModel = await _authServices.GetUserProfile();
+
+      if (userModel != null) {
+        currentUser.value = userModel;
+      }
+    } catch (e) {
+      throw Exception("Profile Data is not found");
     }
   }
 }

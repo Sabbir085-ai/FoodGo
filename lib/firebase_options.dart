@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBxVw0hrn57M2hl_XvNiiMlIGENWCzt5Ew',
-    appId: '1:399211502290:web:a56e24b74fbb5d7c512b0b',
-    messagingSenderId: '399211502290',
-    projectId: 'batchfirebaseproject',
-    authDomain: 'batchfirebaseproject.firebaseapp.com',
-    storageBucket: 'batchfirebaseproject.firebasestorage.app',
-    measurementId: 'G-P4R9TK28H8',
+    apiKey: 'AIzaSyA-V1Z5XeUzGs96bNXcra2ylb_QyXPgWmA',
+    appId: '1:700652397479:web:84a7d55b7229d35e9e0c82',
+    messagingSenderId: '700652397479',
+    projectId: 'foodgofirebase',
+    authDomain: 'foodgofirebase.firebaseapp.com',
+    storageBucket: 'foodgofirebase.firebasestorage.app',
+    measurementId: 'G-BPM0H20SSJ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAXvYeTGgk9pSnwdfTH-yCgxpoFdvdT9Qs',
-    appId: '1:399211502290:android:43677b2ee0a21a1e512b0b',
-    messagingSenderId: '399211502290',
-    projectId: 'batchfirebaseproject',
-    storageBucket: 'batchfirebaseproject.firebasestorage.app',
+    apiKey: 'AIzaSyDXweZ7goy-5wvYybyY_m6fLD6egrsFIao',
+    appId: '1:700652397479:android:884720f613f56dbf9e0c82',
+    messagingSenderId: '700652397479',
+    projectId: 'foodgofirebase',
+    storageBucket: 'foodgofirebase.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDW0jAI5eqZbCiNCfI0hMSjFFaHAFvX95A',
-    appId: '1:399211502290:ios:d5795ee9f9749bdf512b0b',
-    messagingSenderId: '399211502290',
-    projectId: 'batchfirebaseproject',
-    storageBucket: 'batchfirebaseproject.firebasestorage.app',
-    iosBundleId: 'com.foodgo.app',
+    apiKey: 'AIzaSyDDbsy2aGni2VAa82KRRXycnqkrRivV2PQ',
+    appId: '1:700652397479:ios:9710aeadbd85fcb19e0c82',
+    messagingSenderId: '700652397479',
+    projectId: 'foodgofirebase',
+    storageBucket: 'foodgofirebase.firebasestorage.app',
+    iosBundleId: 'com.example.foodgo',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDW0jAI5eqZbCiNCfI0hMSjFFaHAFvX95A',
-    appId: '1:399211502290:ios:d5795ee9f9749bdf512b0b',
-    messagingSenderId: '399211502290',
-    projectId: 'batchfirebaseproject',
-    storageBucket: 'batchfirebaseproject.firebasestorage.app',
-    iosBundleId: 'com.foodgo.app',
+    apiKey: 'AIzaSyDDbsy2aGni2VAa82KRRXycnqkrRivV2PQ',
+    appId: '1:700652397479:ios:9710aeadbd85fcb19e0c82',
+    messagingSenderId: '700652397479',
+    projectId: 'foodgofirebase',
+    storageBucket: 'foodgofirebase.firebasestorage.app',
+    iosBundleId: 'com.example.foodgo',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBxVw0hrn57M2hl_XvNiiMlIGENWCzt5Ew',
-    appId: '1:399211502290:web:f3255feec4f91f27512b0b',
-    messagingSenderId: '399211502290',
-    projectId: 'batchfirebaseproject',
-    authDomain: 'batchfirebaseproject.firebaseapp.com',
-    storageBucket: 'batchfirebaseproject.firebasestorage.app',
-    measurementId: 'G-4Y84T0PKLB',
+    apiKey: 'AIzaSyA-V1Z5XeUzGs96bNXcra2ylb_QyXPgWmA',
+    appId: '1:700652397479:web:588b7cc155361e1c9e0c82',
+    messagingSenderId: '700652397479',
+    projectId: 'foodgofirebase',
+    authDomain: 'foodgofirebase.firebaseapp.com',
+    storageBucket: 'foodgofirebase.firebasestorage.app',
+    measurementId: 'G-38ZFQ1MGFM',
   );
+
 }
