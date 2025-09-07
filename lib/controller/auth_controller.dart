@@ -11,7 +11,7 @@ import 'package:foodgo/view/home_screen.dart';
 import 'package:foodgo/view/profile_screen.dart';
 import 'package:foodgo/view/splash_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/default_transitions.dart';
+//import 'package:get/get_navigation/src/routes/default_transitions.dart';
 
 class AuthController extends GetxController {
   // Auth Services
