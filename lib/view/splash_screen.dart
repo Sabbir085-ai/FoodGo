@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:foodgo/view/home_screen.dart';
+//import 'package:foodgo/view/home_screen.dart';
+//import 'package:foodgo/view/home_screen.dart';
 import 'package:foodgo/view/profile_screen.dart';
 //import 'package:foodgo/view/profile_screen.dart';
 import 'package:foodgo/view/signup_screen.dart';
@@ -18,22 +19,26 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // ৪ সেকেন্ড পরে লগইন স্ট্যাটাস চেক করো
-    Future.delayed(Duration(seconds: 4), () {
+    // 2 সেকেন্ড পরে লগইন স্ট্যাটাস চেক করো
+    Future.delayed(Duration(seconds: 2), () {
       if (mounted) {
         checkLoginStatus();
       }
     });
   }
 
+ 
   void checkLoginStatus() {
-    User? currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      Get.offAll(() => ProfileScreen(), transition: Transition.noTransition);
-    } else {
-      Get.offAll(() => SignupScreens(), transition: Transition.noTransition);
-    }
+  User? currentUser = FirebaseAuth.instance.currentUser;
+
+  if (currentUser != null) {
+    // 🔹 ইউজার লগইন করা আছে => সরাসরি HomeScreen এ যাবে
+    Get.offAll(() => ProfileScreen(), transition: Transition.noTransition);
+  } else {
+    // 🔹 ইউজার লগইন করা নাই => SignupScreens এ যাবে
+    Get.offAll(() => SignupScreens(), transition: Transition.noTransition);
   }
+}
 
   @override
   Widget build(BuildContext context) {

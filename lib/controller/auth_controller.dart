@@ -8,7 +8,10 @@ import 'package:foodgo/models/user_model.dart';
 //import 'package:foodgo/models/user_model.dart';
 import 'package:foodgo/services/auth_services.dart';
 import 'package:foodgo/view/home_screen.dart';
+import 'package:foodgo/view/profile_screen.dart';
+import 'package:foodgo/view/splash_screen.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/default_transitions.dart';
 
 class AuthController extends GetxController {
   // Auth Services
@@ -55,6 +58,7 @@ class AuthController extends GetxController {
       isLoading.value = false;
     } catch (abir) {
       isLoading.value = false;
+      // ignore: unnecessary_string_interpolations
       Get.snackbar("Error", "${abir.toString()}");
     }
   }
@@ -78,8 +82,9 @@ class AuthController extends GetxController {
 
       log("${user?.email}");
 
-      Get.offAll(HomeScreen(), transition: Transition.noTransition);
+      Get.offAll(ProfileScreen(), transition: Transition.noTransition);
       isLoading.value = false;
+      // ignore: empty_catches
     } catch (exception) {}
   }
 
@@ -105,5 +110,11 @@ class AuthController extends GetxController {
     } catch (e) {
       throw Exception("Profile Data is not found");
     }
+  }
+
+  Future SignOut() async {
+    await _authServices.signOut();
+    Get.snackbar("Success", "User LogOut Successfully");
+    Get.off(SplashScreen(),transition: Transition.noTransition);
   }
 }

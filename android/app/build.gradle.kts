@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "com.example.foodgo"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = flutter."27.3.13750724"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
