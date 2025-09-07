@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -106,8 +108,10 @@ class AuthController extends GetxController {
 
       if (userModel != null) {
         currentUser.value = userModel;
+        isProfileLading.value=false;
       }
     } catch (e) {
+      isProfileLading.value=false;
       throw Exception("Profile Data is not found");
     }
   }
@@ -116,5 +120,13 @@ class AuthController extends GetxController {
     await _authServices.signOut();
     Get.snackbar("Success", "User LogOut Successfully");
     Get.off(SplashScreen(),transition: Transition.noTransition);
+    
   }
+  
+@override
+  void onInit() {
+    super.onInit();
+    fatchUserProfile();
+  }
+
 }

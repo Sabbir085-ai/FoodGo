@@ -20,13 +20,13 @@ class ProfileScreen extends GetView<AuthController> {
               height: 70,
               width: 165,
               decoration: BoxDecoration(
-                color: Color(0xff3C2F2F),
+                color: const Color(0xff3C2F2F),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Edit Profile",
                     style: TextStyle(
                       fontSize: 18,
@@ -34,17 +34,15 @@ class ProfileScreen extends GetView<AuthController> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Image.asset("assets/images/edit.png"),
                 ],
               ),
             ),
-            // Logout (display only)
+            // Logout
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 controller.SignOut();
-
-
               },
               child: Container(
                 height: 70,
@@ -56,7 +54,7 @@ class ProfileScreen extends GetView<AuthController> {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text(
                       "Logout",
                       style: TextStyle(
@@ -80,68 +78,83 @@ class ProfileScreen extends GetView<AuthController> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFfc8089), Color(0xFFef2a39)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 60,
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back),
-                      color: Colors.white,
-                    ),
-                    Spacer(),
-                    IconButton(
-                      onPressed: () {
-                        // Get.to(SettingScreen())
-                      },
-                      icon: Icon(Icons.settings),
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 120.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 781,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(35.0),
-                      topRight: Radius.circular(35.0),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
+        child: Obx(() {
+          if (controller.isProfileLading.value) {
+            return const Center(child: CircularProgressIndicator());
+          } else {
+
+            controller.firstNameController.text=controller.currentUser.value?.firstName??"";
+            controller.lastNameController.text=controller.currentUser.value?.lastName??"";
+            controller.emailController.text=controller.currentUser.value?.email??"";
+            controller.addressController.text=controller.currentUser.value?.address??"";
+
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 60,
+                    child: Row(
                       children: [
-                        SizedBox(height: 30),
-                        _textField("Enter your first name", controller.firstNameController),
-                        _textField("Enter your last name", controller.lastNameController),
-                        _textField("Enter your email", controller.emailController),
-                        _textField("Enter your address", controller.addressController),
-                        SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 48.0),
+                          child: IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: const Icon(Icons.arrow_back),
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Spacer(),
+                        IconButton(
+                          onPressed: () {
+                            // Get.to(SettingScreen())
+                          },
+                          icon: const Icon(Icons.settings),
+                          color: Colors.white,
+                        ),
                       ],
                     ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 120.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 781,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(35.0),
+                          topRight: Radius.circular(35.0),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 30),
+                            _textField("Enter your first name", controller.firstNameController),
+                            _textField("Enter your last name", controller.lastNameController),
+                            _textField("Enter your email", controller.emailController),
+                            _textField("Enter your address", controller.addressController),
+                            const SizedBox(height: 20),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
+            );
+          }
+        }),
       ),
     );
   }
@@ -158,7 +171,7 @@ class ProfileScreen extends GetView<AuthController> {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: Colors.grey),
+            borderSide: const BorderSide(color: Colors.grey),
           ),
           labelText: hint,
         ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodgo/controller/auth_controller.dart';
-import 'package:foodgo/widget/custom_button.dart';
 import 'package:get/get.dart';
 
+import '../component/widget/custom_button.dart';
 
 class LoginScreen extends GetView<AuthController> {
   const LoginScreen({super.key});

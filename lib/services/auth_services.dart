@@ -77,4 +77,7 @@ class AuthServices {
 
     }
   }
+
+  // ignore: body_might_complete_normally_nullable
+  Future<UserModel?> getuserprofile() async {}
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foodgo/component/widget/custom_button.dart';
 import 'package:foodgo/controller/auth_controller.dart';
 import 'package:foodgo/view/login_screen.dart';
-import 'package:foodgo/widget/custom_button.dart';
 import 'package:get/get.dart';
 
 class SignupScreens extends GetView<AuthController> {

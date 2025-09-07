@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+//import 'package:foodgo/view/addproduct_screen.dart';
+import 'package:foodgo/view/home_screen.dart';
 //import 'package:foodgo/view/profile_screen.dart';
 //import 'package:foodgo/view/profile_screen.dart';
-import 'package:foodgo/view/splash_screen.dart';
+//import 'package:foodgo/view/splash_screen.dart';
 // import 'package:foodgo/view/login_screen.dart';
 // import 'package:foodgo/view/login_screen.dart';
 // import 'package:foodgo/view/signup_screen.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreen(),
+      home: HomeScreen(),
       //home: ProfileScreen(),
       
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String? text;
   final VoidCallback onTab;
-  const CustomButton({super.key, this.text, required this.onTab});
+  const CustomButton({super.key, this.text, required this.onTab, required MaterialColor bgColor, required Color textColor});
 
   @override
   Widget build(BuildContext context) {
